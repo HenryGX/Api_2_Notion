@@ -19,24 +19,32 @@
 [活动数据模版](https://intriguing-wrinkle-d17.notion.site/7a1032ab6abe4a6e86cc9ea8dc6749c9?v=0f742529531241439f71423490e1cd05)
 
 
-##环境构筑
+## 环境构筑
+
 1.申请集成TOKEN [去申请](https://www.notion.so/my-integrations)
 ![avatar](/help/img/申请集成TOKEN.png)
+
 2.将建立好的集成TOKEN添加至上面两个模版中 点击右上角三个点
 ![avatar](/help/img/集成TOKEN关联.png)
+
 3.确认数据库模版ID 点击右上角共享
 ![avatar](/help/img/数据模版ID确认.png)
 
 4.CLONE本代码至本地路径
+
 5.安装NODEJS运行环境（请自行安装）
+
 6.安装依赖库
+
 ```shell
 npm install express
 npm install garmin-connect
 npm install log4js
 npm install @notionhq/client
 ```
+
 7.配置
+
 佳明的账户密码 ： garmin.config.json 
 notion数据库ID设置：notion-config.json 
 - 将notion的集成TOKEN设置到"Integration_w"
@@ -44,6 +52,7 @@ notion数据库ID设置：notion-config.json
 - 将活动模版的ID设置到"database_id_activity"
 
 8.手动执行
+
 - 访问地址：localhost1:8080
   - node home.js (开启WEB服务) 
   - 
@@ -54,5 +63,6 @@ notion数据库ID设置：notion-config.json
   - node garminActivitieInfo.js 
 
 用法：
+
 配合树莓派，香橙派等集成电脑建立自己的小型家庭服务器！！！
 本人使用香橙派安装ubentu，使用crontab计划任务功能，实现定时同步睡眠数据跟活动数据的功能。只要在服务器电脑上重复上述步骤4～8安装运行环境即可。
