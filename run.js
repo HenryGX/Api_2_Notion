@@ -37,6 +37,7 @@ const getSleep = async () => {
         if (!sleepRate){
             logger.info('【' + year + '-' + month + '-' + date + '】没有睡眠数据！');
         }else{
+            //console.log(sleepRate)
             // 取得睡眠json数据
             const bodySleepRate = await new sleepInfo(sleepRate,year + '年' + month + '月' + date + '日').toJson();
             logger.info(year + '年' + month + '月' + date + '日 睡眠数据取得完成');
@@ -64,7 +65,8 @@ const saveSleepinfo2Notion = async (bodySleepRate) => {
         }
         });  
     logger.info(year + '年' + month + '月' + date + '日 校验用DB数据取得完成！');
-    //  console.log(response.results[0]); //DEBUG
+     // console.log(response.results[0]); //DEBUG
+     // console.log(bodySleepRate)
     // 如果数据存在的话什么都不做
     if (!response.results[0]){
         //undefined値に「!」を作用させるとtrueが返るため、
@@ -82,21 +84,53 @@ class sleepInfo {
     constructor(info,ymd){
         this.ymd = ymd
         // 日期
-        this.calendarDate = info.calendarDate;
+        if (!info.calendarDate){
+            this.calendarDate = 0;
+        }else{
+            this.calendarDate = info.calendarDate;
+        }
         // 深度睡眠
-        this.deepSleepSeconds = info.deepSleepSeconds;
+        if (!info.deepSleepSeconds){
+            this.deepSleepSeconds = 0;
+        }else{
+            this.deepSleepSeconds = info.deepSleepSeconds;
+        }
         // 浅睡
-        this.lightSleepSeconds = info.lightSleepSeconds;
+        if (!info.lightSleepSeconds){
+            this.lightSleepSeconds = 0;
+        }else{
+            this.lightSleepSeconds = info.lightSleepSeconds;
+        }
         // 快速动眼
-        this.remSleepSeconds = info.remSleepSeconds;
+        if (!info.remSleepSeconds){
+            this.remSleepSeconds = 0;
+        }else{
+            this.remSleepSeconds = info.remSleepSeconds;
+        }
         // 清醒
-        this.awakeSleepSeconds = info.awakeSleepSeconds;
+        if (!info.awakeSleepSeconds){
+            this.awakeSleepSeconds = 0;
+        }else{
+            this.awakeSleepSeconds = info.awakeSleepSeconds;
+        }
         // 平均呼吸次数
-        this.averageRespirationValue = info.averageRespirationValue;
+        if (!info.averageRespirationValue){
+            this.averageRespirationValue = 0;
+        }else{
+            this.averageRespirationValue = info.averageRespirationValue;
+        }
         // 最低呼吸次数
-        this.lowestRespirationValue = info.lowestRespirationValue;
+        if (!info.lowestRespirationValue){
+            this.lowestRespirationValue = 0;
+        }else{
+            this.lowestRespirationValue = info.lowestRespirationValue;
+        }
         // 最高呼吸次数
-        this.highestRespirationValue = info.highestRespirationValue;
+        if (!info.highestRespirationValue){
+            this.highestRespirationValue = 0;
+        }else{
+            this.highestRespirationValue = info.highestRespirationValue;
+        }
     }
     toJson(){
         const ret = {
