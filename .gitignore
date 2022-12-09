@@ -1,7 +1,5 @@
 node_modules/
 package-lock.json
 package.json
-notion-config.json
-garmin.config.json
-garmin.config.json
-notion-config.json
+活动数据.txt
+activities.log
