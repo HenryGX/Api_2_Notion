@@ -15,9 +15,9 @@
 - 代码整理
 
 ## 请下载如下NOTION模版
-[睡眠数据模版](https://intriguing-wrinkle-d17.notion.site/814baac3140b48368ba162d25f401a3b?v=3bc4fca2bca24524a8eca1b91f14bb16)
+[活动数据模版](https://intriguing-wrinkle-d17.notion.site/814baac3140b48368ba162d25f401a3b?v=3bc4fca2bca24524a8eca1b91f14bb16)
 
-[活动数据模版](https://intriguing-wrinkle-d17.notion.site/7a1032ab6abe4a6e86cc9ea8dc6749c9?v=0f742529531241439f71423490e1cd05)
+[睡眠数据模版](https://intriguing-wrinkle-d17.notion.site/7a1032ab6abe4a6e86cc9ea8dc6749c9?v=0f742529531241439f71423490e1cd05)
 
 
 ## 环境构筑
