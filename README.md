@@ -29,7 +29,13 @@
 ![avatar](/help/img/集成TOKEN关联.png)
 
 3.确认数据库模版ID 点击右上角共享
+把自己notion中的模版DB开启共享，并复制链接（找到链接中的数据库ID）
 ![avatar](/help/img/数据模版ID确认.png)
+
+```shell
+https://intriguing-wrinkle-d17.notion.site/814baac140b48368ba162d2f401a3b?v=3bc4fca2bca24524a8eca1b91f14bb16
+                                          ｜---------------ID-----------｜
+```
 
 4.CLONE本代码至本地路径
 
