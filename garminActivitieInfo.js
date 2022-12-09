@@ -66,8 +66,6 @@ const saveActivitie2Notion = async (bodyActivitieRate,activityId) => {
             }
         }
         });  
-    // console.log(response.results[0]);
-    //logger.info(year + '年' + month + '月' + date + '日 校验用DB数据取得完成！');
     // console.log(response.results[0]); //DEBUG
     // 如果数据存在的话什么都不做
     if (!response.results[0]){

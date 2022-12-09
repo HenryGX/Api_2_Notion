@@ -1,4 +1,5 @@
 {
-    "Integration_w":"secret_you integeation id here",
-    "database_id_w":"your database is here "
+    "Integration_w":"Integration token key",
+    "database_id_sleep":"sleep db id",
+    "database_id_activity":"activity db id"
 }
