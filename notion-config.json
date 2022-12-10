@@ -1,5 +1,6 @@
 {
     "Integration_w":"Integration token key",
     "database_id_sleep":"sleep db id",
-    "database_id_activity":"activity db id"
+    "database_id_activity":"activity db id",
+    "database_id_rss":"rss db id"
 }

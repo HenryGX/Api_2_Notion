@@ -26,6 +26,25 @@ function sleepInfo2Json(notionConfig,info,ymd){
     return ret;
 }
 
+// 返回RSS数据的json
+function rssInfo2Json(notionConfig,info,source){
+    const ret = {
+        parent: {
+            database_id: notionConfig.database_id_rss,
+        },
+        properties: {
+            '新闻名称': {
+                type: 'title',
+                title: [{type: 'text',text: {content: checkUndefined(info.title,"string"),},},],
+            },
+            '日期': { type: 'date', date: {'start':checkUndefined(info.isoDate,"string") ,'end':null}},
+            'URL': { type: 'url', url: checkUndefined(info.link,"string") },
+            "源":{ select:{ name : source }} 
+        }    
+    }
+    return ret;
+}
+
 // 返回活动数据的json
 function activitieInfo2Json(notionConfig,info,ymd){
     const ret = {
@@ -74,4 +93,5 @@ module.exports = {
     sleepInfo2Json,
     activitieInfo2Json,
     checkUndefined,
+    rssInfo2Json,
   }

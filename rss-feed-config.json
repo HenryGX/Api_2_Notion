@@ -1,0 +1,6 @@
+[
+    { "title":"yahoo_world","url":"https://news.yahoo.co.jp/rss/topics/world.xml"},
+    { "title":"yahoo_top-picks","url":"https://news.yahoo.co.jp/rss/topics/top-picks.xml"},
+    { "title":"yahoo_it","url":"https://news.yahoo.co.jp/rss/topics/it.xml"},
+    { "title":"环球科学","url":"https://api.feeddd.org/feeds/6141597c1269c358aa113a2a/rss"}
+]

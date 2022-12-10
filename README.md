@@ -19,6 +19,7 @@
 
 [睡眠数据模版](https://intriguing-wrinkle-d17.notion.site/7a1032ab6abe4a6e86cc9ea8dc6749c9?v=0f742529531241439f71423490e1cd05)
 
+[RSS数据模版](https://intriguing-wrinkle-d17.notion.site/4655739d0b1e4bedb0cb37121ac391c4?v=b1b3bad37956499aa815bf84599bdafe)
 
 ## 环境构筑
 
