@@ -37,7 +37,7 @@ function rssInfo2Json(notionConfig,info,source){
                 type: 'title',
                 title: [{type: 'text',text: {content: checkUndefined(info.title,"string"),},},],
             },
-            '日期': { type: 'date', date: {'start':checkUndefined(info.isoDate,"string") ,'end':null}},
+            '日期': { type: 'date', date: {'start':checkUndefined(info.isoDate,"date") ,'end':null}},
             'URL': { type: 'url', url: checkUndefined(info.link,"string") },
             "源":{ select:{ name : source }} 
         }    
@@ -83,6 +83,8 @@ function checkUndefined(value,type){
             return "";
         }else if (type == "number"){
             return 0;
+        }else if (type == "date"){
+            return new Date();
         }
     }else{
         return value;

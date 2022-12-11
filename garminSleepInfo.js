@@ -36,12 +36,12 @@ const getSleep = async () => {
 
         // console.log(sleepRate); //DEBUG
         if (!sleepRate){
-            logger.info('【' + year + '-' + month + '-' + date + '】没有睡眠数据！');
+            logger.info('【' + today.toString() +  '】没有睡眠数据！');
         }else{
             //console.log(sleepRate)
             // 取得睡眠json数据
             const bodySleepRate = jsonFormater.sleepInfo2Json(notionConfig,sleepRate,year + '年' + month + '月' + date + '日');
-            logger.info(year + '年' + month + '月' + date + '日 睡眠数据取得完成');
+            logger.info(today.toString() +  ' 睡眠数据取得完成');
             // 调用notion的api
             saveSleepinfo2Notion(bodySleepRate);
         }
@@ -65,20 +65,20 @@ const saveSleepinfo2Notion = async (bodySleepRate) => {
             }
         }
         });  
-    logger.info(year + '年' + month + '月' + date + '日 校验用DB数据取得完成！');
+    logger.info(today.toString() +  ' 校验用DB数据取得完成！');
     //console.log(response.results[0].properties.总睡眠时间.number); //DEBUG
     // 如果数据存在的话什么都不做
     if (!response.results[0]){
         await notion.pages.create(bodySleepRate);
-        logger.info(year + '年' + month + '月' + date + '日 数据登陆成功！');
+        logger.info(today.toString() +  ' 数据登陆成功！');
     }else{
         // 如果总时长是0，那么更新数据
         if (response.results[0].properties.总睡眠时间.number == 0){
             // 更新数据
             await notion.pages.update({page_id:response.results[0].id, properties: bodySleepRate.properties});
-            logger.info(year + '年' + month + '月' + date + '日 数据更新成功！');
+            logger.info(today.toString() +  ' 数据更新成功！');
         }else{
-            logger.info(year + '年' + month + '月' + date + '日 数据已经存在！');
+            logger.info(today.toString() + ' 数据已经存在！');
         }
     }
 }

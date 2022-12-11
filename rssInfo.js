@@ -39,7 +39,7 @@ const rss2Notion = async (feed) => {
     rssRet.items.map(rss => {
         sve2Notion(rss,tilte);
     })
-    logger.info(year + '年' + month + '月' + date + '日 ['+ feed.title + ']数据取得完成');
+    logger.info(today.toString() + ' ['+ feed.title + ']数据取得完成');
 }
 
 const sve2Notion = async (rss,tilte) =>{
@@ -62,9 +62,9 @@ const sve2Notion = async (rss,tilte) =>{
     if(!response.results[0]){
         const bodyRss = jsonFormater.rssInfo2Json(notionConfig,rss,tilte);
         await notion.pages.create(bodyRss);
-        logger.info(year + '年' + month + '月' + date + '日 [源]' + tilte + ' ['+ rss.title + '] 数据登陆成功！');
+        logger.info(today.toString() +  ' [源]' + tilte + ' ['+ rss.title + '] 数据登陆成功！');
     }else{
-        logger.info(year + '年' + month + '月' + date + '日 [源]' + tilte + ' ['+ rss.title + '] 数据已经存在！');
+        //logger.info(year + '年' + month + '月' + date + '日 [源]' + tilte + ' ['+ rss.title + '] 数据已经存在！');
     }
 }
 

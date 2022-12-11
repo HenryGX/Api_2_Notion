@@ -21,7 +21,7 @@ let year = today.getFullYear();
 let month = today.getMonth() + 1;
 let date = today.getDate();
 
-// 同步匿名函数对象
+// 取得活动数据
 const getActivitie = async () => {
     try {
         // Create a new Garmin Connect Client
@@ -30,16 +30,16 @@ const getActivitie = async () => {
         await GCClient.login(login.username, login.password);
         // 获得活动数据
         // https://www.npmjs.com/package/garmin-connect
-        const activities = await GCClient.getActivities(0, 1);
+        const activities = await GCClient.getActivities(0, 5);
         
         // 遍历所有活动数据
         activities.map(data => {
             if(!data){
-                logger.info('【' + year + '-' + month + '-' + date + '】没有活动数据！');
+                logger.info('【' + today.toString() +  '】没有活动数据！');
             }else{
                 // 取得活动json数据
                 const bodyActivitieRate = jsonFormater.activitieInfo2Json(notionConfig,data,year + '年' + month + '月' + date + '日');
-                logger.info(year + '年' + month + '月' + date + '日 活动数据取得完成');   
+                logger.info(today.toString() +  ' 活动数据取得完成');   
                 // 调用notion的api
                 saveActivitie2Notion(bodyActivitieRate,data.activityId);
 
@@ -51,7 +51,7 @@ const getActivitie = async () => {
     }
 };
 
-// 将睡眠数据保存至notion
+// 将睡活动据保存至notion
 const saveActivitie2Notion = async (bodyActivitieRate,activityId) => {
     const notion = new Client({
         auth: notionConfig.Integration_w,
@@ -71,11 +71,11 @@ const saveActivitie2Notion = async (bodyActivitieRate,activityId) => {
     if (!response.results[0]){
         //取得活动ID
         await notion.pages.create(bodyActivitieRate);
-        logger.info(year + '年' + month + '月' + date + '日 数据登陆成功！');
+        logger.info(today.toString()  + '日 数据登陆成功！');
     }else{
-        logger.info(year + '年' + month + '月' + date + '日 数据已经存在！');
+        logger.info(today.toString() + '日 数据已经存在！');
     }
 }
 
-// 睡眠函数调用 
+// 活动函数调用 
 getActivitie();
