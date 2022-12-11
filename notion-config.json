@@ -2,5 +2,6 @@
     "Integration_w":"Integration token key",
     "database_id_sleep":"sleep db id",
     "database_id_activity":"activity db id",
-    "database_id_rss":"rss db id"
+    "database_id_rss":"rss db id",
+    "database_id_google_cal":"google_cal db id"
 }

@@ -45,6 +45,24 @@ function rssInfo2Json(notionConfig,info,source){
     return ret;
 }
 
+// 返回google日历数据的json
+function calInfo2Json(notionConfig,info){
+    const ret = {
+        parent: {
+            database_id: notionConfig.database_id_google_cal,
+        },
+        properties: {
+            '名称': {
+                type: 'title',
+                title: [{type: 'text',text: {content: checkUndefined(info.summary,"string"),},},],
+            },
+            'CALID': { type: 'rich_text', rich_text: [{"text":{"content":''+checkUndefined(info.id ,"string")}}]},
+            '日期': { type: 'date', date: {'start':checkUndefined(info.start.dateTime,"string") ,'end':checkUndefined(info.end.dateTime,"null")}}
+        }    
+    }
+    return ret;
+}
+
 // 返回活动数据的json
 function activitieInfo2Json(notionConfig,info,ymd){
     const ret = {
@@ -85,6 +103,8 @@ function checkUndefined(value,type){
             return 0;
         }else if (type == "date"){
             return new Date();
+        }else if (type == "null"){
+            return null;
         }
     }else{
         return value;
@@ -96,4 +116,5 @@ module.exports = {
     activitieInfo2Json,
     checkUndefined,
     rssInfo2Json,
+    calInfo2Json,
   }

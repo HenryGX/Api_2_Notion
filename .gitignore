@@ -5,3 +5,4 @@ package.json
 activities.log
 public/single-portfolio.html
 public/static-page.html
+token.json
